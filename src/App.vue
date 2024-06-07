@@ -1,16 +1,18 @@
 <template>
-<Counter/>
+  <img src="@/assets/logo.png" alt="Cannot load image!" />
+  <Counter titulo="Contador" />
+  <Counter titulo="Contador :p"/>
+  <Counter />
 </template>
 
 <script>
-
-import Counter from '@/components/Counter.vue'
+import Counter from "@/components/Counter.vue";
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    Counter
-  }
-}
+    Counter,
+  },
+};
 </script>
 
 <style>
@@ -22,4 +24,18 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+button {
+  background-color: #354a5e;
+  color: #fff;
+  border-radius: 8px;
+  font-size: 18PX;
+  border: 1px solid white;
+  margin: 0px 10px;
+  cursor: pointer;
+  align-content: left;
+}
+button:hover {
+background: #42B884;
+}
+
 </style>
