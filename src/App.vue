@@ -1,7 +1,7 @@
 <template>
   <img src="@/assets/logo.png" alt="Cannot load image!" />
-  <Counter titulo="Contador" />
-  <Counter titulo="Contador :p"/>
+  <Counter titulo="Contador" :num="-1"/>
+  <Counter titulo="Contador :p" :num="calcularValor()"/>
   <Counter />
 </template>
 
@@ -12,6 +12,11 @@ export default {
   components: {
     Counter,
   },
+  methods:{
+    calcularValor(){
+      return 5*2;
+    }
+  }
 };
 </script>
 
