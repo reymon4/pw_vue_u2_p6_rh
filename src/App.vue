@@ -1,16 +1,13 @@
 <template>
-  <img src="@/assets/logo.png" alt="Cannot load image!" />
-  <Counter titulo="Contador" :num="-1"/>
-  <Counter titulo="Contador :p" :num="calcularValor()"/>
-  <Counter />
+<Question/>
 </template>
 
 <script>
-import Counter from "@/components/Counter.vue";
+import Question from "@/components/Question.vue";
 export default {
   name: "App",
   components: {
-    Counter,
+    Question,
   },
   methods:{
     calcularValor(){
