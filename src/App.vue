@@ -1,13 +1,14 @@
 <template>
-<Question/>
+<Pokemon/>
 </template>
 
 <script>
-import Question from "@/components/Question.vue";
+import Pokemon from './pages/Pokemon.vue';
+
 export default {
   name: "App",
   components: {
-    Question,
+    Pokemon,
   },
   methods:{
     calcularValor(){
@@ -39,5 +40,6 @@ button {
 button:hover {
 background: #42B884;
 }
+
 
 </style>

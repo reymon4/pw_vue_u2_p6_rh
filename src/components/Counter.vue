@@ -8,7 +8,6 @@
     <button @click="decrement">-1</button>
   </div>
 </template>
-
 <script>
 export default {
   props: {

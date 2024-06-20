@@ -4,9 +4,9 @@
     <div class="container">
       <input v-model="question" type="text" placeholder="Ask me a question" />
       <p>Remember finish the question with interrogation sign (?)</p>
-      <div class="answer">
+      <div v-show="message" class="answer">
         <h2>{{ question }}</h2>
-        <h1>{{ answer }}</h1>
+        <h1>{{ answer=== "yes" ? "¡Sí!": "¡No!" }}</h1>
       </div>
     </div>
   </div>
@@ -19,6 +19,7 @@ export default {
       image: null,
       question: null,
       answer: null,
+      message: false,
     };
   },
   watch: {
@@ -31,12 +32,14 @@ export default {
       }
       /* Dentro del watch, podemos llamar a los método síncronos sin await o async */
       this.getAnswer();
-     
+      this.message = true;
+
     },
   },
+  //TEST
   methods: {
     async getAnswer() {
-      this.answer="Getting answer..."
+      this.answer = "Getting answer..."
       /* FETCH SOLO SIRVE PARA PETICIONES GET. Además, es asíncrono*/
       const response = await fetch("https://yesno.wtf/api").then((r) =>
         r.json()
@@ -49,7 +52,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 img,
 .dark {
   max-width: 100%;
@@ -62,14 +65,17 @@ img,
   top: 0vh;
   left: 0vw;
 }
+
 .dark {
   /* Alpha -> Valores entre 0-1 */
   background-color: rgba(0, 0, 0, 0.5);
 }
+
 .container {
   /* ELEMENTOS ENCIMA; "PRIMERA CAPA" */
   position: relative;
 }
+
 input {
   width: 260px;
   padding: 10px 15px;
@@ -77,19 +83,26 @@ input {
   border-radius: 5px;
   margin-top: 100px;
 }
+
 input:focus {
   outline: none;
 }
+
 p,
 h2,
 h1 {
   color: white;
 }
+
 p {
   font-size: 25px;
   margin: 0px;
 }
+
 .answer {
   margin-top: 100px;
+}
+body{
+  background: #4293df; ;
 }
 </style>
