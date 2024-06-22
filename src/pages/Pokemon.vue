@@ -32,7 +32,7 @@ export default {
     return {
       arreglo: [],
       pokemonCorrecto: null,
-      mostrar: true, // Cambiado a true para asegurar que la imagen se muestre inicialmente
+      mostrar: true, 
       message: false,
       tryAgain: false,
     };
@@ -44,7 +44,7 @@ export default {
       this.arreglo = vectorInicial;
       const indice = Math.floor(Math.random() * this.arreglo.length);
       this.pokemonCorrecto = this.arreglo[indice];
-      this.mostrar = true; // Asegura que la imagen se muestre después de seleccionar un nuevo Pokémon
+      this.mostrar = true; 
     },
     checkAnswer(value) {
       console.log("Emit answer from PokemonOptions: " + value);
