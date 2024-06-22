@@ -2,16 +2,20 @@
   <div class="options_container">
     <h3>Pokemon Options</h3>
     <ul>
-      <li>1</li>
-      <li>2</li>
-      <li>3</li>
-      <li>4</li>
+       <li v-for="pokemon in pokemons" :key="pokemon.id" @click="$emit('selectPokemon',pokemon.id)"> {{ pokemon.nombre }}</li>
     </ul>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+   props:{
+        pokemons:{
+            type: Array,
+            required: true,
+        }
+    }
+};
 </script>
 
 <style scoped>
@@ -33,6 +37,7 @@ li:hover{
   transition: 0.5s;
 }
 .options_container{
+  margin: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
