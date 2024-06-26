@@ -1,7 +1,12 @@
+np
 <template>
-  <h1 v-if="!pokemonCorrecto">Cargando</h1>
+  <h1 v-if="!pokemonCorrecto">Cargando...</h1>
   <div v-else>
     <h1>Who's that Pokemon?</h1>
+    <div class="cabecera">
+      <h2>Puntos: {{ puntos }}</h2>
+      <h2>Intentos: {{ intentos }}</h2>
+    </div>
     <PokemonImage :idPokemon="pokemonCorrecto.id" :show="mostrar" />
     <div class="try_again" v-if="tryAgain">
       <h2>Try again! Pokemon incorrect</h2>
@@ -32,9 +37,11 @@ export default {
     return {
       arreglo: [],
       pokemonCorrecto: null,
-      mostrar: true, 
+      mostrar: true,
       message: false,
       tryAgain: false,
+      intentos: 0,
+      puntos: 0,
     };
   },
   methods: {
@@ -44,19 +51,47 @@ export default {
       this.arreglo = vectorInicial;
       const indice = Math.floor(Math.random() * this.arreglo.length);
       this.pokemonCorrecto = this.arreglo[indice];
-      this.mostrar = true; 
+      this.mostrar = true;
     },
     checkAnswer(value) {
+      this.intentos++;
       console.log("Emit answer from PokemonOptions: " + value);
+      
       if (value === this.pokemonCorrecto.id) {
         console.log("Correct answer");
         this.mostrar = false;
+        this.scoreGame();
         console.log(this.pokemonCorrecto.name);
         this.message = true;
         this.tryAgain = false;
       } else {
         console.log("Incorrect answer");
         this.tryAgain = true;
+      }
+    },
+    scoreGame() {
+      switch (this.intentos) {
+        case 1:
+          this.puntos = 10;
+          break;
+        case 2:
+          this.puntos = 8;
+          break;
+        case 3:
+          this.puntos = 5;
+          break;
+        case 4:
+          this.puntos = 3;
+          break;
+        case 5:
+          this.puntos = 2;
+          break;
+        case 6:
+          this.puntos = 1;
+          break;
+        default:
+          this.puntos = 0;
+          break;
       }
     },
   },
@@ -66,4 +101,10 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.cabecera {
+  display: flex;
+  justify-content: space-around;
+  margin: 40px 0px;
+}
+</style>
