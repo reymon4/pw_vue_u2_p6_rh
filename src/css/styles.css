@@ -3,4 +3,19 @@ body{
     color: blue;
     font-weight: bold;
   }
-  
+
+
+  button:hover {
+    background: rgb(89, 68, 247);
+    transition: 0.5s;
+    }
+    button {
+      background-color: rgb(119, 102, 246);
+      color: #fff;
+      border-radius: 8px;
+      font-size: 18PX;
+      border: 1px solid rgb(119, 102, 246);;
+      margin: 0px 10px;
+      cursor: pointer;
+      align-content: left;
+    }

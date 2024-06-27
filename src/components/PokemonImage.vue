@@ -28,7 +28,8 @@ export default {
   },
   computed: {
     imagenFuente() {
-      let aux = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${this.idPokemon}.svg`;
+ 
+      let aux = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/${this.idPokemon}.gif`;
       console.log("imagePoke"+aux);
       return aux;
     },
@@ -48,6 +49,6 @@ img {
 .pokemon_container {
   display: flex;
   justify-content: center;
-  height: 40vh;
+  height: 33vh;
 }
 </style>

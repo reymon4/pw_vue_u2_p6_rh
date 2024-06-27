@@ -20,6 +20,9 @@ np
       <h1>Congratulations, you guessed the Pokemon!</h1>
       <h2>Pokemon name: {{ pokemonCorrecto.nombre }}</h2>
     </div>
+    <div class="reset">
+      <button @click="resetGame" >Reset Game</button>
+    </div>
   </div>
 </template>
 
@@ -94,6 +97,14 @@ export default {
           break;
       }
     },
+    resetGame() {
+      this.intentos = 0;
+      this.puntos = 0;
+      this.message = false;
+      this.tryAgain = false;
+      this.pokemonCorrecto = null;
+      this.cargaInicial();
+    },
   },
   mounted() {
     this.cargaInicial();
@@ -106,5 +117,11 @@ export default {
   display: flex;
   justify-content: space-around;
   margin: 40px 0px;
+}
+.reset {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  margin: 20px 0px;
 }
 </style>
